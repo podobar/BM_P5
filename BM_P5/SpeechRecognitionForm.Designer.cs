@@ -29,75 +29,111 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpeechRecognitionForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.waveViewer2 = new NAudio.Gui.WaveViewer();
+            this.PlayButton_Track2 = new System.Windows.Forms.Button();
+            this.PlayButton_Track1 = new System.Windows.Forms.Button();
             this.waveViewer1 = new NAudio.Gui.WaveViewer();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.track1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.track2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LoadButton_Track2 = new System.Windows.Forms.Button();
+            this.LoadButton_Track1 = new System.Windows.Forms.Button();
+            this.Label_OfTrack2 = new System.Windows.Forms.Label();
+            this.Label_OfTrack1 = new System.Windows.Forms.Label();
+            this.waveViewer2 = new NAudio.Gui.WaveViewer();
             this.panel1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.waveViewer2);
+            this.panel1.Controls.Add(this.PlayButton_Track2);
+            this.panel1.Controls.Add(this.PlayButton_Track1);
             this.panel1.Controls.Add(this.waveViewer1);
-            this.panel1.Controls.Add(this.menuStrip1);
+            this.panel1.Controls.Add(this.LoadButton_Track2);
+            this.panel1.Controls.Add(this.LoadButton_Track1);
+            this.panel1.Controls.Add(this.Label_OfTrack2);
+            this.panel1.Controls.Add(this.Label_OfTrack1);
+            this.panel1.Controls.Add(this.waveViewer2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 450);
             this.panel1.TabIndex = 0;
             // 
-            // button2
+            // PlayButton_Track2
             // 
-            this.button2.Location = new System.Drawing.Point(49, 71);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "loadtrack2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.PlayButton_Track2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PlayButton_Track2.BackgroundImage")));
+            this.PlayButton_Track2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PlayButton_Track2.Location = new System.Drawing.Point(106, 323);
+            this.PlayButton_Track2.Name = "PlayButton_Track2";
+            this.PlayButton_Track2.Size = new System.Drawing.Size(23, 23);
+            this.PlayButton_Track2.TabIndex = 8;
+            this.PlayButton_Track2.Text = " ";
+            this.PlayButton_Track2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // PlayButton_Track1
             // 
-            this.button1.Location = new System.Drawing.Point(49, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "loadtrack1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.PlayButton_Track1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PlayButton_Track1.BackgroundImage")));
+            this.PlayButton_Track1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PlayButton_Track1.Location = new System.Drawing.Point(104, 198);
+            this.PlayButton_Track1.Name = "PlayButton_Track1";
+            this.PlayButton_Track1.Size = new System.Drawing.Size(23, 23);
+            this.PlayButton_Track1.TabIndex = 7;
+            this.PlayButton_Track1.Text = " ";
+            this.PlayButton_Track1.UseVisualStyleBackColor = true;
+            this.PlayButton_Track1.Click += new System.EventHandler(this.PlayButton_Track1_Click);
             // 
-            // label2
+            // waveViewer1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 335);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Track 2";
+            this.waveViewer1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.waveViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.waveViewer1.Location = new System.Drawing.Point(25, 227);
+            this.waveViewer1.Name = "waveViewer1";
+            this.waveViewer1.SamplesPerPixel = 128;
+            this.waveViewer1.Size = new System.Drawing.Size(750, 90);
+            this.waveViewer1.StartPosition = ((long)(0));
+            this.waveViewer1.TabIndex = 2;
+            this.waveViewer1.WaveStream = null;
             // 
-            // label1
+            // LoadButton_Track2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 211);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Track 1";
+            this.LoadButton_Track2.Location = new System.Drawing.Point(25, 323);
+            this.LoadButton_Track2.Name = "LoadButton_Track2";
+            this.LoadButton_Track2.Size = new System.Drawing.Size(75, 23);
+            this.LoadButton_Track2.TabIndex = 6;
+            this.LoadButton_Track2.Text = "Load";
+            this.LoadButton_Track2.UseVisualStyleBackColor = true;
+            // 
+            // LoadButton_Track1
+            // 
+            this.LoadButton_Track1.Location = new System.Drawing.Point(25, 198);
+            this.LoadButton_Track1.Name = "LoadButton_Track1";
+            this.LoadButton_Track1.Size = new System.Drawing.Size(73, 23);
+            this.LoadButton_Track1.TabIndex = 5;
+            this.LoadButton_Track1.Text = "Load";
+            this.LoadButton_Track1.UseVisualStyleBackColor = true;
+            this.LoadButton_Track1.Click += new System.EventHandler(this.LoadButton_Track1_Click);
+            // 
+            // Label_OfTrack2
+            // 
+            this.Label_OfTrack2.AutoSize = true;
+            this.Label_OfTrack2.Location = new System.Drawing.Point(135, 328);
+            this.Label_OfTrack2.Name = "Label_OfTrack2";
+            this.Label_OfTrack2.Size = new System.Drawing.Size(44, 13);
+            this.Label_OfTrack2.TabIndex = 3;
+            this.Label_OfTrack2.Text = "Track 2";
+            // 
+            // Label_OfTrack1
+            // 
+            this.Label_OfTrack1.AutoSize = true;
+            this.Label_OfTrack1.Location = new System.Drawing.Point(135, 203);
+            this.Label_OfTrack1.Name = "Label_OfTrack1";
+            this.Label_OfTrack1.Size = new System.Drawing.Size(44, 13);
+            this.Label_OfTrack1.TabIndex = 2;
+            this.Label_OfTrack1.Text = "Track 1";
             // 
             // waveViewer2
             // 
             this.waveViewer2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.waveViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.waveViewer2.Location = new System.Drawing.Point(25, 351);
             this.waveViewer2.Name = "waveViewer2";
             this.waveViewer2.SamplesPerPixel = 128;
@@ -106,61 +142,16 @@
             this.waveViewer2.TabIndex = 1;
             this.waveViewer2.WaveStream = null;
             // 
-            // waveViewer1
-            // 
-            this.waveViewer1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.waveViewer1.Location = new System.Drawing.Point(25, 227);
-            this.waveViewer1.Name = "waveViewer1";
-            this.waveViewer1.SamplesPerPixel = 128;
-            this.waveViewer1.Size = new System.Drawing.Size(750, 90);
-            this.waveViewer1.StartPosition = ((long)(0));
-            this.waveViewer1.TabIndex = 0;
-            this.waveViewer1.WaveStream = null;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.track1ToolStripMenuItem,
-            this.track2ToolStripMenuItem});
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
-            this.loadToolStripMenuItem.Text = "Load";
-            // 
-            // track1ToolStripMenuItem
-            // 
-            this.track1ToolStripMenuItem.Name = "track1ToolStripMenuItem";
-            this.track1ToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.track1ToolStripMenuItem.Text = "Track 1";
-            // 
-            // track2ToolStripMenuItem
-            // 
-            this.track2ToolStripMenuItem.Name = "track2ToolStripMenuItem";
-            this.track2ToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.track2ToolStripMenuItem.Text = "Track 2";
-            // 
             // SpeechRecognitionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "SpeechRecognitionForm";
             this.Text = "Speech recognition - DTW";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -169,15 +160,13 @@
 
         private System.Windows.Forms.Panel panel1;
         private NAudio.Gui.WaveViewer waveViewer2;
+        private System.Windows.Forms.Label Label_OfTrack2;
+        private System.Windows.Forms.Label Label_OfTrack1;
+        private System.Windows.Forms.Button LoadButton_Track2;
+        private System.Windows.Forms.Button LoadButton_Track1;
         private NAudio.Gui.WaveViewer waveViewer1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem track1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem track2ToolStripMenuItem;
+        private System.Windows.Forms.Button PlayButton_Track2;
+        private System.Windows.Forms.Button PlayButton_Track1;
     }
 }
 
