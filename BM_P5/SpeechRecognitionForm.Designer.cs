@@ -68,6 +68,7 @@
             this.PlayButton_Track2.TabIndex = 8;
             this.PlayButton_Track2.Text = " ";
             this.PlayButton_Track2.UseVisualStyleBackColor = true;
+            this.PlayButton_Track2.Click += new System.EventHandler(this.PlayButton_Track2_Click);
             // 
             // PlayButton_Track1
             // 
@@ -101,6 +102,7 @@
             this.LoadButton_Track2.TabIndex = 6;
             this.LoadButton_Track2.Text = "Load";
             this.LoadButton_Track2.UseVisualStyleBackColor = true;
+            this.LoadButton_Track2.Click += new System.EventHandler(this.LoadButton_Track2_Click);
             // 
             // LoadButton_Track1
             // 
