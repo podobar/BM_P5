@@ -31,38 +31,86 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpeechRecognitionForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DirectoryDatabaseComparisonButton = new System.Windows.Forms.Button();
+            this.LocalMatrixPBox = new System.Windows.Forms.PictureBox();
+            this.GlobalMatrixPBox = new System.Windows.Forms.PictureBox();
+            this.MagicButton = new System.Windows.Forms.Button();
             this.PlayButton_Track2 = new System.Windows.Forms.Button();
             this.PlayButton_Track1 = new System.Windows.Forms.Button();
-            this.waveViewer1 = new NAudio.Gui.WaveViewer();
             this.LoadButton_Track2 = new System.Windows.Forms.Button();
             this.LoadButton_Track1 = new System.Windows.Forms.Button();
             this.Label_OfTrack2 = new System.Windows.Forms.Label();
             this.Label_OfTrack1 = new System.Windows.Forms.Label();
-            this.waveViewer2 = new NAudio.Gui.WaveViewer();
+            this.CostTextBox = new System.Windows.Forms.TextBox();
+            this.CostLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LocalMatrixPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GlobalMatrixPBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.CostLabel);
+            this.panel1.Controls.Add(this.CostTextBox);
+            this.panel1.Controls.Add(this.DirectoryDatabaseComparisonButton);
+            this.panel1.Controls.Add(this.LocalMatrixPBox);
+            this.panel1.Controls.Add(this.GlobalMatrixPBox);
+            this.panel1.Controls.Add(this.MagicButton);
             this.panel1.Controls.Add(this.PlayButton_Track2);
             this.panel1.Controls.Add(this.PlayButton_Track1);
-            this.panel1.Controls.Add(this.waveViewer1);
             this.panel1.Controls.Add(this.LoadButton_Track2);
             this.panel1.Controls.Add(this.LoadButton_Track1);
             this.panel1.Controls.Add(this.Label_OfTrack2);
             this.panel1.Controls.Add(this.Label_OfTrack1);
-            this.panel1.Controls.Add(this.waveViewer2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 450);
+            this.panel1.Size = new System.Drawing.Size(887, 558);
             this.panel1.TabIndex = 0;
+            // 
+            // DirectoryDatabaseComparisonButton
+            // 
+            this.DirectoryDatabaseComparisonButton.Location = new System.Drawing.Point(125, 28);
+            this.DirectoryDatabaseComparisonButton.Name = "DirectoryDatabaseComparisonButton";
+            this.DirectoryDatabaseComparisonButton.Size = new System.Drawing.Size(161, 32);
+            this.DirectoryDatabaseComparisonButton.TabIndex = 15;
+            this.DirectoryDatabaseComparisonButton.Text = "Compare with collected data";
+            this.DirectoryDatabaseComparisonButton.UseVisualStyleBackColor = true;
+            this.DirectoryDatabaseComparisonButton.Click += new System.EventHandler(this.CompareWithDatabaseData_Click);
+            // 
+            // LocalMatrixPBox
+            // 
+            this.LocalMatrixPBox.Location = new System.Drawing.Point(25, 142);
+            this.LocalMatrixPBox.Name = "LocalMatrixPBox";
+            this.LocalMatrixPBox.Size = new System.Drawing.Size(400, 400);
+            this.LocalMatrixPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LocalMatrixPBox.TabIndex = 13;
+            this.LocalMatrixPBox.TabStop = false;
+            // 
+            // GlobalMatrixPBox
+            // 
+            this.GlobalMatrixPBox.Location = new System.Drawing.Point(458, 142);
+            this.GlobalMatrixPBox.Name = "GlobalMatrixPBox";
+            this.GlobalMatrixPBox.Size = new System.Drawing.Size(400, 400);
+            this.GlobalMatrixPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.GlobalMatrixPBox.TabIndex = 12;
+            this.GlobalMatrixPBox.TabStop = false;
+            // 
+            // MagicButton
+            // 
+            this.MagicButton.Location = new System.Drawing.Point(25, 28);
+            this.MagicButton.Name = "MagicButton";
+            this.MagicButton.Size = new System.Drawing.Size(75, 23);
+            this.MagicButton.TabIndex = 9;
+            this.MagicButton.Text = "Whoosh";
+            this.MagicButton.UseVisualStyleBackColor = true;
+            this.MagicButton.Click += new System.EventHandler(this.CompareTracks_1_2_Click);
             // 
             // PlayButton_Track2
             // 
             this.PlayButton_Track2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PlayButton_Track2.BackgroundImage")));
             this.PlayButton_Track2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PlayButton_Track2.Location = new System.Drawing.Point(106, 323);
+            this.PlayButton_Track2.Location = new System.Drawing.Point(108, 113);
             this.PlayButton_Track2.Name = "PlayButton_Track2";
             this.PlayButton_Track2.Size = new System.Drawing.Size(23, 23);
             this.PlayButton_Track2.TabIndex = 8;
@@ -74,7 +122,7 @@
             // 
             this.PlayButton_Track1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PlayButton_Track1.BackgroundImage")));
             this.PlayButton_Track1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PlayButton_Track1.Location = new System.Drawing.Point(104, 198);
+            this.PlayButton_Track1.Location = new System.Drawing.Point(108, 73);
             this.PlayButton_Track1.Name = "PlayButton_Track1";
             this.PlayButton_Track1.Size = new System.Drawing.Size(23, 23);
             this.PlayButton_Track1.TabIndex = 7;
@@ -82,21 +130,9 @@
             this.PlayButton_Track1.UseVisualStyleBackColor = true;
             this.PlayButton_Track1.Click += new System.EventHandler(this.PlayButton_Track1_Click);
             // 
-            // waveViewer1
-            // 
-            this.waveViewer1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.waveViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.waveViewer1.Location = new System.Drawing.Point(25, 227);
-            this.waveViewer1.Name = "waveViewer1";
-            this.waveViewer1.SamplesPerPixel = 128;
-            this.waveViewer1.Size = new System.Drawing.Size(750, 90);
-            this.waveViewer1.StartPosition = ((long)(0));
-            this.waveViewer1.TabIndex = 2;
-            this.waveViewer1.WaveStream = null;
-            // 
             // LoadButton_Track2
             // 
-            this.LoadButton_Track2.Location = new System.Drawing.Point(25, 323);
+            this.LoadButton_Track2.Location = new System.Drawing.Point(27, 113);
             this.LoadButton_Track2.Name = "LoadButton_Track2";
             this.LoadButton_Track2.Size = new System.Drawing.Size(75, 23);
             this.LoadButton_Track2.TabIndex = 6;
@@ -106,9 +142,9 @@
             // 
             // LoadButton_Track1
             // 
-            this.LoadButton_Track1.Location = new System.Drawing.Point(25, 198);
+            this.LoadButton_Track1.Location = new System.Drawing.Point(27, 73);
             this.LoadButton_Track1.Name = "LoadButton_Track1";
-            this.LoadButton_Track1.Size = new System.Drawing.Size(73, 23);
+            this.LoadButton_Track1.Size = new System.Drawing.Size(75, 23);
             this.LoadButton_Track1.TabIndex = 5;
             this.LoadButton_Track1.Text = "Load";
             this.LoadButton_Track1.UseVisualStyleBackColor = true;
@@ -117,7 +153,7 @@
             // Label_OfTrack2
             // 
             this.Label_OfTrack2.AutoSize = true;
-            this.Label_OfTrack2.Location = new System.Drawing.Point(135, 328);
+            this.Label_OfTrack2.Location = new System.Drawing.Point(137, 118);
             this.Label_OfTrack2.Name = "Label_OfTrack2";
             this.Label_OfTrack2.Size = new System.Drawing.Size(44, 13);
             this.Label_OfTrack2.TabIndex = 3;
@@ -126,34 +162,40 @@
             // Label_OfTrack1
             // 
             this.Label_OfTrack1.AutoSize = true;
-            this.Label_OfTrack1.Location = new System.Drawing.Point(135, 203);
+            this.Label_OfTrack1.Location = new System.Drawing.Point(137, 78);
             this.Label_OfTrack1.Name = "Label_OfTrack1";
             this.Label_OfTrack1.Size = new System.Drawing.Size(44, 13);
             this.Label_OfTrack1.TabIndex = 2;
             this.Label_OfTrack1.Text = "Track 1";
             // 
-            // waveViewer2
+            // CostTextBox
             // 
-            this.waveViewer2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.waveViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.waveViewer2.Location = new System.Drawing.Point(25, 351);
-            this.waveViewer2.Name = "waveViewer2";
-            this.waveViewer2.SamplesPerPixel = 128;
-            this.waveViewer2.Size = new System.Drawing.Size(750, 90);
-            this.waveViewer2.StartPosition = ((long)(0));
-            this.waveViewer2.TabIndex = 1;
-            this.waveViewer2.WaveStream = null;
+            this.CostTextBox.Location = new System.Drawing.Point(367, 31);
+            this.CostTextBox.Name = "CostTextBox";
+            this.CostTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CostTextBox.TabIndex = 17;
+            // 
+            // CostLabel
+            // 
+            this.CostLabel.AutoSize = true;
+            this.CostLabel.Location = new System.Drawing.Point(330, 33);
+            this.CostLabel.Name = "CostLabel";
+            this.CostLabel.Size = new System.Drawing.Size(31, 13);
+            this.CostLabel.TabIndex = 18;
+            this.CostLabel.Text = "Cost:";
             // 
             // SpeechRecognitionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(887, 558);
             this.Controls.Add(this.panel1);
             this.Name = "SpeechRecognitionForm";
             this.Text = "Speech recognition - DTW";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LocalMatrixPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GlobalMatrixPBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -161,14 +203,18 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private NAudio.Gui.WaveViewer waveViewer2;
         private System.Windows.Forms.Label Label_OfTrack2;
         private System.Windows.Forms.Label Label_OfTrack1;
         private System.Windows.Forms.Button LoadButton_Track2;
         private System.Windows.Forms.Button LoadButton_Track1;
-        private NAudio.Gui.WaveViewer waveViewer1;
         private System.Windows.Forms.Button PlayButton_Track2;
         private System.Windows.Forms.Button PlayButton_Track1;
+        private System.Windows.Forms.Button MagicButton;
+        private System.Windows.Forms.PictureBox LocalMatrixPBox;
+        private System.Windows.Forms.PictureBox GlobalMatrixPBox;
+        private System.Windows.Forms.Button DirectoryDatabaseComparisonButton;
+        private System.Windows.Forms.Label CostLabel;
+        private System.Windows.Forms.TextBox CostTextBox;
     }
 }
 
