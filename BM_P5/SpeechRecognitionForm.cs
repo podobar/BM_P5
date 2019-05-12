@@ -7,6 +7,7 @@ using System.Linq;
 using System;
 using System.Drawing;
 using System.IO;
+using System.Text;
 
 namespace BM_P5
 {
@@ -148,8 +149,6 @@ namespace BM_P5
                     PrepareFFTValues(ts);
                     break;
             }
-            
-            //CalculateMatrixOfCost(_fft_frames_Track1.Count, _fft_frames_Track2.Count, EuclideanDistance);
         }
         
         /// <summary>
@@ -179,13 +178,11 @@ namespace BM_P5
                 _matrix_OfGlobalCost[i, 0] = _matrix_OfGlobalCost[i - 1, 0] + _matrix_OfLocalCost[i, 0];
             for(int j=1;j<y;++j)
                 _matrix_OfGlobalCost[0, j] = _matrix_OfGlobalCost[0, j-1] + _matrix_OfLocalCost[0, j];
-            for(int i=1;i<x;++i)
-                for(int j = 1; j < y; ++j)
-                    _matrix_OfGlobalCost[i, j] = 
-                        Math.Min(
-                            Math.Min(
-                                _matrix_OfGlobalCost[i - 1, j], 
-                                _matrix_OfGlobalCost[i, j - 1]), 
+            for (int i = 1; i < x; ++i)
+                for (int j = 1; j < y; ++j)
+                    _matrix_OfGlobalCost[i, j] = FindMinOf(
+                            _matrix_OfGlobalCost[i - 1, j],
+                            _matrix_OfGlobalCost[i, j - 1], 
                             _matrix_OfGlobalCost[i - 1, j - 1]) 
                         + _matrix_OfLocalCost[i, j];
         }
@@ -350,7 +347,16 @@ namespace BM_P5
             }
             VerifyUser();
         }
-
+        private void CopyToClipboard_LocalCost(object sender, EventArgs e)
+        {
+            if(LocalMatrixPBox.Image!=null)
+                Clipboard.SetImage(LocalMatrixPBox.Image);
+        }
+        private void CopyToClipboard_GlobalCost(object sender, EventArgs e)
+        {
+            if (GlobalMatrixPBox.Image != null)
+                Clipboard.SetImage(GlobalMatrixPBox.Image);
+        }
         #endregion
         /// <summary>
         /// Draws both local cost matrix and global cost matrix.
@@ -396,7 +402,9 @@ namespace BM_P5
             GlobalMatrixPBox.Image = bmp_global;
             CostTextBox.Text = GetPathCost(path).ToString();
         }
-        
+        /// <summary>
+        /// Shows which user is recognized by algorithm, optionally saves results in destination selected by user
+        /// </summary>
         private void VerifyUser()
         {
             var sorted_ByNonZeroAverage = database_data.OrderBy(speaker =>
@@ -407,7 +415,25 @@ namespace BM_P5
                         ++non_zero_components;
                 return speaker.Value.Sum() / non_zero_components;
             });
-            MessageBox.Show("Track 1: "+sorted_ByNonZeroAverage.First().Key);
+            
+            MessageBox.Show("Track 1 belongs to: "+sorted_ByNonZeroAverage?.First().Key);
+            if(SaveToFileCheckBox.Checked)
+                using(var saveDialog = new System.Windows.Forms.SaveFileDialog() { Title= "Choose where you want to keep results of comparison with database", Filter= "Text files | *.txt" })
+                {
+                    if(saveDialog.ShowDialog() == DialogResult.OK && !String.IsNullOrEmpty(saveDialog.FileName))
+                    {
+                        using (var sw = new StreamWriter(saveDialog.FileName))
+                        {
+                            foreach(var speaker in sorted_ByNonZeroAverage)
+                            {
+                                var sb = new StringBuilder(speaker.Key + " ");
+                                foreach (var record in speaker.Value)
+                                    sb.Append(record + "; ");
+                                sw.WriteLine(sb.ToString());
+                            }
+                        }
+                    }
+                }
         }
         
         private enum TrackSelector
@@ -416,7 +442,5 @@ namespace BM_P5
             Second,
             File
         }
-
-        
     }
 }

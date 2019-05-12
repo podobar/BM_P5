@@ -29,20 +29,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button MagicButton;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpeechRecognitionForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CostLabel = new System.Windows.Forms.Label();
+            this.CostTextBox = new System.Windows.Forms.TextBox();
             this.DirectoryDatabaseComparisonButton = new System.Windows.Forms.Button();
             this.LocalMatrixPBox = new System.Windows.Forms.PictureBox();
             this.GlobalMatrixPBox = new System.Windows.Forms.PictureBox();
-            this.MagicButton = new System.Windows.Forms.Button();
             this.PlayButton_Track2 = new System.Windows.Forms.Button();
             this.PlayButton_Track1 = new System.Windows.Forms.Button();
             this.LoadButton_Track2 = new System.Windows.Forms.Button();
             this.LoadButton_Track1 = new System.Windows.Forms.Button();
             this.Label_OfTrack2 = new System.Windows.Forms.Label();
             this.Label_OfTrack1 = new System.Windows.Forms.Label();
-            this.CostTextBox = new System.Windows.Forms.TextBox();
-            this.CostLabel = new System.Windows.Forms.Label();
+            this.SaveToFileCheckBox = new System.Windows.Forms.CheckBox();
+            MagicButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LocalMatrixPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GlobalMatrixPBox)).BeginInit();
@@ -50,12 +52,13 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.SaveToFileCheckBox);
             this.panel1.Controls.Add(this.CostLabel);
             this.panel1.Controls.Add(this.CostTextBox);
             this.panel1.Controls.Add(this.DirectoryDatabaseComparisonButton);
             this.panel1.Controls.Add(this.LocalMatrixPBox);
             this.panel1.Controls.Add(this.GlobalMatrixPBox);
-            this.panel1.Controls.Add(this.MagicButton);
+            this.panel1.Controls.Add(MagicButton);
             this.panel1.Controls.Add(this.PlayButton_Track2);
             this.panel1.Controls.Add(this.PlayButton_Track1);
             this.panel1.Controls.Add(this.LoadButton_Track2);
@@ -68,11 +71,27 @@
             this.panel1.Size = new System.Drawing.Size(887, 558);
             this.panel1.TabIndex = 0;
             // 
+            // CostLabel
+            // 
+            this.CostLabel.AutoSize = true;
+            this.CostLabel.Location = new System.Drawing.Point(183, 30);
+            this.CostLabel.Name = "CostLabel";
+            this.CostLabel.Size = new System.Drawing.Size(31, 13);
+            this.CostLabel.TabIndex = 18;
+            this.CostLabel.Text = "Cost:";
+            // 
+            // CostTextBox
+            // 
+            this.CostTextBox.Location = new System.Drawing.Point(220, 28);
+            this.CostTextBox.Name = "CostTextBox";
+            this.CostTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CostTextBox.TabIndex = 17;
+            // 
             // DirectoryDatabaseComparisonButton
             // 
-            this.DirectoryDatabaseComparisonButton.Location = new System.Drawing.Point(125, 28);
+            this.DirectoryDatabaseComparisonButton.Location = new System.Drawing.Point(356, 21);
             this.DirectoryDatabaseComparisonButton.Name = "DirectoryDatabaseComparisonButton";
-            this.DirectoryDatabaseComparisonButton.Size = new System.Drawing.Size(161, 32);
+            this.DirectoryDatabaseComparisonButton.Size = new System.Drawing.Size(150, 32);
             this.DirectoryDatabaseComparisonButton.TabIndex = 15;
             this.DirectoryDatabaseComparisonButton.Text = "Compare with collected data";
             this.DirectoryDatabaseComparisonButton.UseVisualStyleBackColor = true;
@@ -86,6 +105,7 @@
             this.LocalMatrixPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LocalMatrixPBox.TabIndex = 13;
             this.LocalMatrixPBox.TabStop = false;
+            this.LocalMatrixPBox.Click += new System.EventHandler(this.CopyToClipboard_LocalCost);
             // 
             // GlobalMatrixPBox
             // 
@@ -95,16 +115,17 @@
             this.GlobalMatrixPBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.GlobalMatrixPBox.TabIndex = 12;
             this.GlobalMatrixPBox.TabStop = false;
+            this.GlobalMatrixPBox.Click += new System.EventHandler(this.CopyToClipboard_GlobalCost);
             // 
             // MagicButton
             // 
-            this.MagicButton.Location = new System.Drawing.Point(25, 28);
-            this.MagicButton.Name = "MagicButton";
-            this.MagicButton.Size = new System.Drawing.Size(75, 23);
-            this.MagicButton.TabIndex = 9;
-            this.MagicButton.Text = "Whoosh";
-            this.MagicButton.UseVisualStyleBackColor = true;
-            this.MagicButton.Click += new System.EventHandler(this.CompareTracks_1_2_Click);
+            MagicButton.Location = new System.Drawing.Point(27, 21);
+            MagicButton.Name = "MagicButton";
+            MagicButton.Size = new System.Drawing.Size(150, 32);
+            MagicButton.TabIndex = 9;
+            MagicButton.Text = "Compare loaded tracks";
+            MagicButton.UseVisualStyleBackColor = true;
+            MagicButton.Click += new System.EventHandler(this.CompareTracks_1_2_Click);
             // 
             // PlayButton_Track2
             // 
@@ -168,21 +189,15 @@
             this.Label_OfTrack1.TabIndex = 2;
             this.Label_OfTrack1.Text = "Track 1";
             // 
-            // CostTextBox
+            // SaveToFileCheckBox
             // 
-            this.CostTextBox.Location = new System.Drawing.Point(367, 31);
-            this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(100, 20);
-            this.CostTextBox.TabIndex = 17;
-            // 
-            // CostLabel
-            // 
-            this.CostLabel.AutoSize = true;
-            this.CostLabel.Location = new System.Drawing.Point(330, 33);
-            this.CostLabel.Name = "CostLabel";
-            this.CostLabel.Size = new System.Drawing.Size(31, 13);
-            this.CostLabel.TabIndex = 18;
-            this.CostLabel.Text = "Cost:";
+            this.SaveToFileCheckBox.AutoSize = true;
+            this.SaveToFileCheckBox.Location = new System.Drawing.Point(512, 29);
+            this.SaveToFileCheckBox.Name = "SaveToFileCheckBox";
+            this.SaveToFileCheckBox.Size = new System.Drawing.Size(112, 17);
+            this.SaveToFileCheckBox.TabIndex = 19;
+            this.SaveToFileCheckBox.Text = "Save results to file";
+            this.SaveToFileCheckBox.UseVisualStyleBackColor = true;
             // 
             // SpeechRecognitionForm
             // 
@@ -209,12 +224,12 @@
         private System.Windows.Forms.Button LoadButton_Track1;
         private System.Windows.Forms.Button PlayButton_Track2;
         private System.Windows.Forms.Button PlayButton_Track1;
-        private System.Windows.Forms.Button MagicButton;
         private System.Windows.Forms.PictureBox LocalMatrixPBox;
         private System.Windows.Forms.PictureBox GlobalMatrixPBox;
         private System.Windows.Forms.Button DirectoryDatabaseComparisonButton;
         private System.Windows.Forms.Label CostLabel;
         private System.Windows.Forms.TextBox CostTextBox;
+        private System.Windows.Forms.CheckBox SaveToFileCheckBox;
     }
 }
 
