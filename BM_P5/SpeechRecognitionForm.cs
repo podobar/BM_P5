@@ -343,9 +343,10 @@ namespace BM_P5
                             }
                         }
                     }
+                    VerifyUser();
                 }
             }
-            VerifyUser();
+            
         }
         private void CopyToClipboard_LocalCost(object sender, EventArgs e)
         {
